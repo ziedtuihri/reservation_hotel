@@ -1,0 +1,25 @@
+{
+  "name": "reservation_hotel",
+  "version": "1.0.0",
+  "description": "is a simple CRUD",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziedtuihri/reservation_hotel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ziedtuihri/reservation_hotel/issues"
+  },
+  "homepage": "https://github.com/ziedtuihri/reservation_hotel#readme"
+}
