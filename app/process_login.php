@@ -9,17 +9,9 @@
 ob_start();
 session_start();
 
-// include this for every Customer model existence
-require '../lib/phpPasswordHashing/passwordLib.php';
 
 require 'DB.php';
-require 'Util.php';
-require 'dao/CustomerDAO.php';
-require 'dao/AdminDAO.php';
-require 'models/Customer.php';
-require 'models/Admin.php';
-require 'handlers/CustomerHandler.php';
-require 'handlers/AdminHandler.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
     $errors_ = null;

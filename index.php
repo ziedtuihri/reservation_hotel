@@ -474,7 +474,7 @@ session_start();
 </main>
 
 <footer class="container">
-    <p>&copy; zied </p>
+    <p>&copy; Zied Tuihri </p>
 </footer>
 <script src="js/utilityFunctions.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
