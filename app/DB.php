@@ -1,5 +1,13 @@
 <?php
 
+
+
+
+$con = mysqli_connect('localhost', 'root', '', 'reserv_hotel');
+
+
+
+
 class DB
 {
     private static $instance = null;

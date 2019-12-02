@@ -1,14 +1,5 @@
 <?php
-
-require '../lib/phpPasswordHashing/passwordLib.php';
-
 require 'DB.php';
-require 'Util.php';
-require 'dao/CustomerDAO.php';
-require 'models/Customer.php';
-require 'handlers/CustomerHandler.php';
-
-$con = mysqli_connect('localhost', 'root', '', 'reserv_hotel');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
     $errors_ = null;
@@ -35,15 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
       $password = $_POST["password"];
 
   $sql = "INSERT INTO `client` (`fullname`, `email`, `password`, `phone`)
-  VALUES ('$fullName', '".$email."', '$phoneNumber', '$password')";
+  VALUES ('$fullName', '$email','".md5($password)."', '$phoneNumber')";
 
   $result = mysqli_query($con,$sql);
          if($result){
              echo "<div class='form'>
-               <h3>You are registered successfully.</h3> ";
+               <h3 style=\"color: green;\">You are registered successfully.</h3> ";
              }else{
                echo "<div class='form'>
-                 <h3>You are not registered error.</h3> ";
+                 <h3 style=\"color: red;\">You are not registered error.</h3> ";
              }
 
 /*
@@ -59,11 +50,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
         */
     }
 }
-
-/**
- * [x] validate the fields first
- * [x] if no error create a Customer object
- * [x] check if email already exists
- *     if not exists insert the customer object
- *     otherwise, display email exists message
- */
