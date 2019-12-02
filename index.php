@@ -61,7 +61,7 @@ session_start();
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">About</h4>
                     <p class="text-muted">Add some information about hotel booking.</p>
-					
+
 					<h4>
                         <a class="text-white" href="contact.html">Contact</a>
                     </h4>
@@ -82,7 +82,7 @@ session_start();
                     </ul>
                     <?php } else { ?>
                     <h4>
-                        <a class="text-white" href="sign-in.php">Sign in</a> <span class="text-white">or</span>
+                        <a class="text-white" href="login.php">Login</a> <span class="text-white">or</span>
                         <a href="register.php" class="text-white">Register </a>
                     </h4>
                     <p class="text-muted">Log in so you can take advantage with our hotel room prices.</p>

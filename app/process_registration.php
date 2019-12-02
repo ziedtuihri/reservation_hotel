@@ -37,16 +37,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
                  <h3 style=\"color: red;\">You are not registered error.</h3> ";
              }
 
-/*
-        $customer = new Customer();
-        $customer->setFullName($_POST["fullName"]);
-        $customer->setEmail($_POST["email"]);
-        $customer->setPhone($_POST["phoneNumber"]);
-        $customer->setPassword($_POST["password"]);
-
-        $handler = new CustomerHandler();
-        $handler->insertCustomer($customer);
-        echo Util::displayAlertV1($handler->getExecutionFeedback(), "info");
-        */
     }
 }

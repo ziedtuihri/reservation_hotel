@@ -34,9 +34,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
         echo $errors_;
     } else {
 
-        // check whether email belongs to customer or admin
-        // if email belongs to admin no need for password hashing
+      $email = $_POST["email"];
+      $password = $_POST["password"];
 
+      $sql = "SELECT * FROM `client` WHERE email = '$email' and password = '".md5($password)."' ";
+       $result = mysqli_query($con,$sql);
+       if($result){
+         $sql2 = "SELECT * FROM `client` WHERE email='$email' and isadmin = 1 ";
+          $result2 = mysqli_query($con,$sql2);
+          if($result2){
+            $_SESSION["username"] = $_POST["email"];
+            $_SESSION["accountEmail"] = $_POST["email"];
+            $_SESSION['isAdmin'] = 1;
+            echo $_SESSION['isAdmin'];
+          }else{
+            $_SESSION["username"] = $email;
+            $_SESSION["accountEmail"] = $email;
+            $_SESSION["authenticated"] = 1;
+            $_SESSION["password"] = $_POST["password"];
+            echo $_SESSION["authenticated"];
+          }
+       }else {
+         echo Util::displayAlertV1("Incorrect password or email ", "warning");
+       }
+
+/*
         $adminHandler = new AdminHandler();
         $admin = new Admin();
         // before running this method, make sure email exists
@@ -69,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
                 echo $_SESSION["authenticated"];
             }
         }
+        */
     }
 }
 
