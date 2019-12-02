@@ -8,6 +8,8 @@ require 'dao/CustomerDAO.php';
 require 'models/Customer.php';
 require 'handlers/CustomerHandler.php';
 
+$con = mysqli_connect('localhost', 'root', '', 'reserv_hotel');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
     $errors_ = null;
 
@@ -26,6 +28,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
     if (!empty($errors_)) {
         echo $errors_;
     } else {
+
+      $fullName = $_POST["fullName"];
+      $email = $_POST["email"];
+      $phoneNumber = $_POST["phoneNumber"];
+      $password = $_POST["password"];
+
+  $sql = "INSERT INTO `client` (`fullname`, `email`, `password`, `phone`)
+  VALUES ('$fullName', '".$email."', '$phoneNumber', '$password')";
+
+  $result = mysqli_query($con,$sql);
+         if($result){
+             echo "<div class='form'>
+               <h3>You are registered successfully.</h3> ";
+             }else{
+               echo "<div class='form'>
+                 <h3>You are not registered error.</h3> ";
+             }
+
+/*
         $customer = new Customer();
         $customer->setFullName($_POST["fullName"]);
         $customer->setEmail($_POST["email"]);
@@ -35,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
         $handler = new CustomerHandler();
         $handler->insertCustomer($customer);
         echo Util::displayAlertV1($handler->getExecutionFeedback(), "info");
+        */
     }
 }
 
